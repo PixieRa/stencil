@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/first.esm.js"></script>
-    <script nomodule src="/build/first.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/first.esm.js"></script>
+  <script nomodule src="/build/first.js"></script>
+
+</head>
+
+<body>
+  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <my-alert kind="info"></my-alert>
+  <my-alert kind="warning" text="warning"></my-alert>
+  <my-alert kind="error" text="error"></my-alert>
+  <p>test encapsulation of style</p>
+  <button onclick=alertButtonAction()>BANG</button>
+
+  <script>
+    // import { alertButtonAction } from './utils.ts';
+
+    function alertButtonAction() {
+      var alertArray = document.querySelectorAll("my-alert");
+
+      for(x in alertArray){
+        console.log(alertArray);
+        console.log(x.kind, x.text);
+        x.kind = "info" ? x.text = "LOUD NOISES" : null;
+        x.kind = "warning" ? x.text = "nn" : null;
+        x.kind = "error" ? x.text = "gg" : null;
+      }
+      // alert.kind = "info" ? alert.text = "LOUD NOISES" : null;
+      // alert.kind = "warning" ? alert.text = "nn" : null;
+      // alert.kind = "error" ? "gg" : null;
+      // alert.text = "LOUD NOISES";
+      return alert;
+    }
+  </script>
+</body>
+
 </html>
